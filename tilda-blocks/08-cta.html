@@ -1,0 +1,48 @@
+<!-- БЛОК 8: ПРИЗЫВ К ДЕЙСТВИЮ (CtaStrip). Tilda: блок "Код"/T123 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500&display=swap');
+.qlh-cta{
+  --bg:#FAFAF7;--fg:#2B2B2B;--sage:#3B5942;
+  --disp:'Cormorant Garamond',serif;--sans:'Inter',sans-serif;
+  background:var(--bg);font-family:var(--sans);
+}
+.qlh-cta *{box-sizing:border-box;margin:0;padding:0}
+.qlh-cta .wrap{max-width:1280px;margin:0 auto;padding:80px 1.25rem}
+.qlh-cta .box{border-radius:16px;background:var(--fg);color:var(--bg);padding:56px 32px}
+.qlh-cta .grid{display:grid;grid-template-columns:1fr;gap:40px}
+.qlh-cta h2{font-family:var(--disp);font-weight:500;font-size:32px;line-height:1.1}
+.qlh-cta h2 i{font-style:italic;color:rgba(250,250,247,.6)}
+.qlh-cta .lead{margin-top:16px;max-width:32rem;font-size:15px;color:rgba(250,250,247,.7)}
+.qlh-cta .btns{display:flex;flex-direction:column;gap:12px}
+.qlh-cta a{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9999px;padding:14px 24px;font-size:14px;font-weight:500;text-decoration:none;transition:all .2s}
+.qlh-cta a svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+.qlh-cta .wa{background:var(--bg);color:var(--fg)}
+.qlh-cta .wa:hover{background:var(--sage);color:var(--bg)}
+.qlh-cta .ph{border:1px solid rgba(250,250,247,.3);color:var(--bg)}
+.qlh-cta .ph:hover{border-color:var(--bg)}
+@media(min-width:640px){.qlh-cta .btns{flex-direction:row}}
+@media(min-width:768px){
+  .qlh-cta .wrap{padding:112px 2.5rem}
+  .qlh-cta .box{padding:80px 64px}
+  .qlh-cta .grid{grid-template-columns:7fr 5fr;align-items:end}
+  .qlh-cta h2{font-size:44px}
+  .qlh-cta .btns{flex-direction:column;align-items:flex-end}
+}
+</style>
+
+<section class="qlh-cta">
+  <div class="wrap">
+    <div class="box">
+      <div class="grid">
+        <div>
+          <h2>Обсудим вашу ситуацию <i>конфиденциально</i></h2>
+          <p class="lead">Первый разбор — 15 минут. Я скажу честно, есть ли судебная перспектива и какой план действий подходит именно вам.</p>
+        </div>
+        <div class="btns">
+          <a class="wa" href="https://wa.me/79141234567" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L3 21z"/></svg>Написать в WhatsApp</a>
+          <a class="ph" href="tel:+79141234567"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+7 (914) 123-45-67</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

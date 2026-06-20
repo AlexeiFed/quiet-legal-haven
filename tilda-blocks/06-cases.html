@@ -1,0 +1,51 @@
+<!-- БЛОК 6: КЕЙСЫ было → стало (Cases). Tilda: блок "Код"/T123 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500&display=swap');
+.qlh-cases{
+  --bg:#FAFAF7;--paper:#F4F2EC;--fg:#2B2B2B;--muted:#4A4741;--bd:#E5E2D9;--sage:#3B5942;
+  --disp:'Cormorant Garamond',serif;--sans:'Inter',sans-serif;
+  background:var(--bg);font-family:var(--sans);
+}
+.qlh-cases *{box-sizing:border-box;margin:0;padding:0}
+.qlh-cases .wrap{max-width:1280px;margin:0 auto;padding:80px 1.25rem;scroll-margin-top:96px}
+.qlh-cases .head{margin-bottom:48px;max-width:42rem}
+.qlh-cases .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--sage)}
+.qlh-cases h2{margin-top:16px;font-family:var(--disp);font-weight:500;font-size:36px;line-height:1.1;color:var(--fg)}
+.qlh-cases .grid{display:grid;grid-template-columns:1fr;gap:24px}
+.qlh-cases .card{overflow:hidden;border-radius:12px;border:1px solid var(--bd);background:var(--bg)}
+.qlh-cases .cn{border-bottom:1px solid var(--bd);background:rgba(244,242,236,.5);padding:12px 24px;font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+.qlh-cases .seg{padding:24px}
+.qlh-cases .seg.b{border-bottom:1px solid var(--bd)}
+.qlh-cases .seg.a{background:rgba(244,242,236,.3)}
+.qlh-cases .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.18em}
+.qlh-cases .seg.b .lbl{color:var(--muted)}
+.qlh-cases .seg.a .lbl{color:var(--sage)}
+.qlh-cases .seg p{margin-top:12px;font-size:14px;line-height:1.65;color:var(--fg)}
+@media(min-width:768px){.qlh-cases .wrap{padding:112px 2.5rem}.qlh-cases h2{font-size:48px}.qlh-cases .grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+
+<section class="qlh-cases" id="cases">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Практика</div>
+      <h2>Реальные кейсы: было → стало</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="cn">Дело № 2-1847/2024</div>
+        <div class="seg b"><div class="lbl">Было</div><p>Супруг скрыл от раздела два автомобиля и долю в ООО, переоформив их на родителей за полгода до развода.</p></div>
+        <div class="seg a"><div class="lbl">Стало</div><p>Оспорены сделки как мнимые. Активы возвращены в общую массу, клиентке присуждено 50% стоимости — 3,2 млн ₽.</p></div>
+      </div>
+      <div class="card">
+        <div class="cn">Дело № 2-0932/2023</div>
+        <div class="seg b"><div class="lbl">Было</div><p>Отец на протяжении 3 лет не платил алименты, формально получая «серую» зарплату 15 000 ₽.</p></div>
+        <div class="seg a"><div class="lbl">Стало</div><p>Установлены реальные доходы, алименты переведены в твёрдую сумму. Взыскана задолженность — 870 000 ₽.</p></div>
+      </div>
+      <div class="card">
+        <div class="cn">Дело № 2А-0418/2024</div>
+        <div class="seg b"><div class="lbl">Было</div><p>Администрация отказала в оформлении участка под жилым домом, ссылаясь на отсутствие правоустанавливающих документов.</p></div>
+        <div class="seg a"><div class="lbl">Стало</div><p>Право собственности признано в судебном порядке. Участок 12 соток оформлен в собственность клиента.</p></div>
+      </div>
+    </div>
+  </div>
+</section>

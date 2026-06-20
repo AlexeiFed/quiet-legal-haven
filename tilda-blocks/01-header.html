@@ -1,0 +1,75 @@
+<!-- БЛОК 1: ШАПКА (Header). Tilda: блок "Код"/T123. Sticky-меню + мобильное меню -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500&display=swap');
+
+.qlh-hd{
+  --bg:#FAFAF7;--paper:#F4F2EC;--fg:#2B2B2B;--muted:#4A4741;--bd:#E5E2D9;--sage:#3B5942;--sage-d:#2F4A36;
+  --disp:'Cormorant Garamond',serif;--sans:'Inter',sans-serif;
+  position:sticky;top:0;z-index:50;border-bottom:1px solid var(--bd);
+  background:rgba(250,250,247,.85);backdrop-filter:blur(12px);font-family:var(--sans);
+}
+.qlh-hd *{box-sizing:border-box;margin:0;padding:0}
+.qlh-hd .wrap{max-width:1280px;margin:0 auto;padding:0 1.25rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.qlh-hd .logo{display:flex;flex-direction:column;line-height:1.1;text-decoration:none}
+.qlh-hd .logo b{font-family:var(--disp);font-weight:500;font-size:17px;color:var(--fg);letter-spacing:-.01em}
+.qlh-hd .logo span{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.qlh-hd nav{display:none;align-items:center;gap:28px}
+.qlh-hd nav a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+.qlh-hd nav a:hover{color:var(--sage-d)}
+.qlh-hd .actions{display:none;align-items:center;gap:8px}
+.qlh-hd .ic{display:flex;height:40px;width:40px;align-items:center;justify-content:center;border-radius:9999px;border:1px solid var(--bd);color:var(--muted);text-decoration:none;transition:all .2s}
+.qlh-hd .ic:hover{border-color:var(--sage);color:var(--sage)}
+.qlh-hd .call{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;border:1px solid rgba(43,43,43,.8);padding:8px 16px;font-size:13px;font-weight:500;color:var(--fg);text-decoration:none;transition:all .2s}
+.qlh-hd .call:hover{background:var(--fg);color:var(--bg)}
+.qlh-hd .burger{display:flex;height:40px;width:40px;align-items:center;justify-content:center;border-radius:9999px;border:1px solid var(--bd);color:var(--fg);background:none;cursor:pointer}
+.qlh-hd .mob{overflow:hidden;max-height:0;border-top:1px solid var(--bd);background:var(--bg);transition:max-height .35s cubic-bezier(.22,1,.36,1)}
+.qlh-hd .mob.open{max-height:420px}
+.qlh-hd .mob .inner{max-width:1280px;margin:0 auto;padding:16px 1.25rem;display:flex;flex-direction:column;gap:4px}
+.qlh-hd .mob a.ml{border-radius:6px;padding:12px;font-size:15px;color:var(--fg);text-decoration:none}
+.qlh-hd .mob a.ml:hover{background:var(--paper)}
+.qlh-hd .mob .mrow{margin-top:12px;display:flex;gap:8px}
+.qlh-hd .mob .mrow a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:9999px;padding:12px;font-size:14px;font-weight:500;text-decoration:none}
+.qlh-hd .mob .wa{background:var(--sage);color:var(--bg)}
+.qlh-hd .mob .ph{border:1px solid var(--fg);color:var(--fg)}
+.qlh-hd svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+@media(min-width:768px){.qlh-hd .actions{display:flex}}
+@media(min-width:1024px){.qlh-hd nav{display:flex}.qlh-hd .burger{display:none}}
+</style>
+
+<header class="qlh-hd">
+  <div class="wrap">
+    <a class="logo" href="#top"><b>Артём Сысуев</b><span>Юрист · Хабаровск</span></a>
+    <nav>
+      <a href="#razvod">Развод</a>
+      <a href="#alimenty">Алименты</a>
+      <a href="#imushchestvo">Раздел имущества</a>
+      <a href="#deti">Споры о детях</a>
+      <a href="#zemlya">Земля и недвижимость</a>
+    </nav>
+    <div class="actions">
+      <a class="ic" href="https://wa.me/79141234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L3 21z"/></svg>
+      </a>
+      <a class="call" href="tel:+79141234567">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Позвонить
+      </a>
+    </div>
+    <button class="burger" aria-label="Меню" onclick="(function(b){var m=b.closest('.qlh-hd').querySelector('.mob');m.classList.toggle('open')})(this)">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mob">
+    <div class="inner">
+      <a class="ml" href="#razvod">Развод</a>
+      <a class="ml" href="#alimenty">Алименты</a>
+      <a class="ml" href="#imushchestvo">Раздел имущества</a>
+      <a class="ml" href="#deti">Споры о детях</a>
+      <a class="ml" href="#zemlya">Земля и недвижимость</a>
+      <div class="mrow">
+        <a class="wa" href="https://wa.me/79141234567" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="ph" href="tel:+79141234567">Позвонить</a>
+      </div>
+    </div>
+  </div>
+</header>

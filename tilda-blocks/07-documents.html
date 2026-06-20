@@ -1,0 +1,81 @@
+<!-- БЛОК 7: ДОКУМЕНТЫ И ОТЗЫВЫ — карусель (Documents). Tilda: блок "Код"/T123 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500&display=swap');
+.qlh-docs{
+  --bg:#FAFAF7;--paper:#F4F2EC;--fg:#2B2B2B;--muted:#4A4741;--bd:#E5E2D9;--sage:#3B5942;
+  --disp:'Cormorant Garamond',serif;--sans:'Inter',sans-serif;
+  border-top:1px solid var(--bd);background:rgba(244,242,236,.4);font-family:var(--sans);
+}
+.qlh-docs *{box-sizing:border-box;margin:0;padding:0}
+.qlh-docs .wrap{max-width:1280px;margin:0 auto;padding:80px 1.25rem}
+.qlh-docs .top{margin-bottom:40px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.qlh-docs .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--sage)}
+.qlh-docs h2{margin-top:16px;font-family:var(--disp);font-weight:500;font-size:32px;line-height:1.1;color:var(--fg)}
+.qlh-docs .nav{display:flex;gap:8px}
+.qlh-docs .nav button{display:flex;height:44px;width:44px;align-items:center;justify-content:center;border-radius:9999px;border:1px solid var(--bd);background:var(--bg);color:var(--fg);cursor:pointer;transition:all .2s}
+.qlh-docs .nav button:hover{border-color:var(--sage);color:var(--sage)}
+.qlh-docs .nav svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.qlh-docs .viewport{overflow:hidden}
+.qlh-docs .track{display:flex;gap:20px;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.qlh-docs .slide{flex:0 0 100%}
+.qlh-docs .doc{display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:3/4;overflow:hidden;border-radius:12px;border:1px solid var(--bd);background:var(--bg);padding:24px}
+.qlh-docs .doc .center{flex:1;display:flex;align-items:center;justify-content:center}
+.qlh-docs .doc .center svg{width:40px;height:40px;stroke:var(--bd);fill:none;stroke-width:1;transition:stroke .2s}
+.qlh-docs .doc:hover .center svg{stroke:var(--sage)}
+.qlh-docs .doc .s{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+.qlh-docs .doc .t{margin-top:8px;font-size:14px;line-height:1.35;color:var(--fg)}
+.qlh-docs .dots{margin-top:24px;display:flex;justify-content:center;gap:6px}
+.qlh-docs .dots button{height:4px;width:6px;border-radius:9999px;background:var(--bd);border:none;cursor:pointer;transition:all .3s}
+.qlh-docs .dots button.on{width:24px;background:var(--sage)}
+@media(min-width:640px){.qlh-docs .slide{flex-basis:50%}}
+@media(min-width:768px){.qlh-docs .wrap{padding:112px 2.5rem}.qlh-docs h2{font-size:40px}}
+@media(min-width:1024px){.qlh-docs .slide{flex-basis:33.333%}}
+</style>
+
+<section class="qlh-docs">
+  <div class="wrap">
+    <div class="top">
+      <div><div class="kicker">Доказательства</div><h2>Документы и отзывы</h2></div>
+      <div class="nav">
+        <button data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="viewport"><div class="track" id="qlh-docs-track"></div></div>
+    <div class="dots" id="qlh-docs-dots"></div>
+  </div>
+</section>
+<script>
+(function(){
+  var docs=[
+    {t:"Диплом о высшем юридическом образовании",s:"ДВФУ, 2013"},
+    {t:"Свидетельство о повышении квалификации",s:"Семейное право, 2021"},
+    {t:"Удостоверение о членстве в профессиональной ассоциации",s:"2018"},
+    {t:"Отзыв клиента · Яндекс.Услуги",s:"Раздел имущества"},
+    {t:"Отзыв клиента · Профи.ру",s:"Земельный спор"},
+    {t:"Благодарственное письмо",s:"Сопровождение развода"}
+  ];
+  var fico='<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var sec=document.currentScript.closest("section");
+  var track=sec.querySelector("#qlh-docs-track"),dots=sec.querySelector("#qlh-docs-dots");
+  docs.forEach(function(d,i){
+    var sl=document.createElement("div");sl.className="slide";
+    sl.innerHTML='<div class="doc"><div class="center">'+fico+'</div><div><div class="s">'+d.s+'</div><div class="t">'+d.t+'</div></div></div>';
+    track.appendChild(sl);
+    var dt=document.createElement("button");if(i===0)dt.className="on";dots.appendChild(dt);
+  });
+  var idx=0;
+  function render(){
+    [].forEach.call(dots.children,function(c,k){c.className=k===idx?"on":""});
+    var first=track.querySelector(".slide");if(!first)return;
+    var step=first.getBoundingClientRect().width+20;            // ширина слайда + gap
+    track.style.transform="translateX(-"+(idx*step)+"px)";
+  }
+  function move(n){idx=(idx+n+docs.length)%docs.length;render();}
+  sec.querySelectorAll(".nav button").forEach(function(b){
+    b.addEventListener("click",function(){move(parseInt(b.dataset.dir,10));});
+  });
+  [].forEach.call(dots.children,function(c,i){c.addEventListener("click",function(){idx=i;render();});});
+  window.addEventListener("resize",render);setTimeout(render,100);
+})();
+</script>

@@ -1,0 +1,101 @@
+<!-- БЛОК 4: НАПРАВЛЕНИЯ ПРАКТИКИ (Services) с раскрывающимися услугами. Tilda: блок "Код"/T123 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500&display=swap');
+.qlh-srv{
+  --bg:#FAFAF7;--paper:#F4F2EC;--fg:#2B2B2B;--muted:#4A4741;--bd:#E5E2D9;--sage:#3B5942;--sage-d:#2F4A36;
+  --disp:'Cormorant Garamond',serif;--sans:'Inter',sans-serif;
+  background:var(--bg);font-family:var(--sans);
+}
+.qlh-srv *{box-sizing:border-box;margin:0;padding:0}
+.qlh-srv .wrap{max-width:1280px;margin:0 auto;padding:80px 1.25rem}
+.qlh-srv .head{margin-bottom:48px;max-width:42rem}
+.qlh-srv .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--sage)}
+.qlh-srv h2{margin-top:16px;font-family:var(--disp);font-weight:500;font-size:36px;line-height:1.1;color:var(--fg)}
+.qlh-srv .item{border-top:1px solid var(--bd);padding:48px 0;scroll-margin-top:96px}
+.qlh-srv .row{display:grid;grid-template-columns:1fr;gap:32px}
+.qlh-srv .num{font-family:var(--disp);font-size:13px;color:var(--muted)}
+.qlh-srv .t{margin-top:12px;font-family:var(--disp);font-weight:500;font-size:28px;line-height:1.1;color:var(--fg)}
+.qlh-srv .price{margin-top:24px;display:inline-flex;align-items:baseline;gap:8px}
+.qlh-srv .price .o{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.qlh-srv .price .v{font-family:var(--disp);font-size:24px;color:var(--sage)}
+.qlh-srv .desc{font-size:16px;line-height:1.65;color:var(--muted)}
+.qlh-srv .acts{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.qlh-srv .cta{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:var(--sage);padding:12px 20px;font-size:14px;font-weight:500;color:var(--bg);text-decoration:none;transition:background .2s}
+.qlh-srv .cta:hover{background:var(--sage-d)}
+.qlh-srv .cta svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+.qlh-srv .toggle{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--fg);background:none;border:none;cursor:pointer;transition:color .2s}
+.qlh-srv .toggle:hover{color:var(--sage-d)}
+.qlh-srv .toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;transition:transform .3s}
+.qlh-srv .toggle.on svg{transform:rotate(180deg)}
+.qlh-srv .extras{overflow:hidden;max-height:0;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+.qlh-srv .extras ul{margin-top:24px;display:grid;grid-template-columns:1fr;gap:8px;border-top:1px solid var(--bd);padding-top:24px;list-style:none}
+.qlh-srv .extras li{display:flex;align-items:flex-start;gap:12px;border-radius:6px;background:rgba(244,242,236,.6);padding:12px 16px;font-size:14px;color:var(--muted)}
+.qlh-srv .extras li::before{content:"";margin-top:8px;height:4px;width:4px;flex:0 0 auto;border-radius:9999px;background:var(--sage)}
+@media(min-width:640px){.qlh-srv .extras ul{grid-template-columns:1fr 1fr}}
+@media(min-width:768px){
+  .qlh-srv .wrap{padding:112px 2.5rem}
+  .qlh-srv h2{font-size:48px}
+  .qlh-srv .item{padding:64px 0}
+  .qlh-srv .row{grid-template-columns:4fr 8fr;gap:48px}
+  .qlh-srv .t{font-size:36px}
+  .qlh-srv .desc{font-size:17px}
+}
+</style>
+
+<section class="qlh-srv">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Направления практики</div>
+      <h2>Пять ключевых направлений с фиксированной стоимостью</h2>
+    </div>
+    <div id="qlh-srv-list"></div>
+  </div>
+</section>
+<script>
+(function(){
+  var data=[
+    {id:"razvod",n:"01",t:"Развод",p:"20 000 ₽",cta:"Рассчитать стоимость развода",link:"https://wa.me/79141234567",
+     d:"Расторжение брака без присутствия клиента в суде. Развод без согласия второго супруга, при наличии несовершеннолетних детей, дистанционно из любого региона.",
+     ex:["Признание брака недействительным","Составление брачного договора","Развод со спором о месте жительства детей","Расторжение брака с иностранным гражданином"]},
+    {id:"alimenty",n:"02",t:"Алименты",p:"20 000 ₽",cta:"Узнать перспективы по алиментам",link:"https://wa.me/79141234567",
+     d:"Взыскание алиментов, увеличение или уменьшение размера выплат — в твёрдой денежной сумме или процентах от дохода. Работа со скрытыми доходами плательщика.",
+     ex:["Взыскание задолженности по алиментам","Алименты на содержание супруги","Освобождение от уплаты задолженности","Изменение порядка взыскания"]},
+    {id:"imushchestvo",n:"03",t:"Раздел имущества",p:"20 000 ₽",cta:"Оценить доли имущества в Telegram",link:"https://t.me/sysuev_lawyer",
+     d:"Раздел недвижимости, автотранспорта, бизнеса, ипотечных обязательств и долгов. Поиск скрытых активов, оспаривание сделок, выделение долей.",
+     ex:["Раздел ипотечной квартиры","Раздел бизнеса и долей в ООО","Оспаривание брачного договора","Признание имущества личной собственностью"]},
+    {id:"deti",n:"04",t:"Споры о детях",p:"20 000 ₽",cta:"Проконсультироваться по спору о детях",link:"https://wa.me/79141234567",
+     d:"Определение места жительства ребёнка, установление графика общения с отдельно проживающим родителем, установление и оспаривание отцовства.",
+     ex:["Лишение и ограничение родительских прав","Усыновление и опека","Вывоз ребёнка за границу","Взаимодействие с органами опеки"]},
+    {id:"zemlya",n:"05",t:"Земля и недвижимость",p:"30 000 ₽",cta:"Задать вопрос земельному юристу",link:"https://wa.me/79141234567",
+     d:"Регистрация и приватизация земельных участков, оформление земли под жилым домом, межевание и согласование границ, разрешения на строительство.",
+     ex:["Перевод земель из одной категории в другую","Споры с соседями о границах участка","Оспаривание кадастровой стоимости","Узаконивание самовольных построек"]}
+  ];
+  var ico='<svg viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L3 21z"/></svg>';
+  var chev='<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>';
+  var host=document.getElementById("qlh-srv-list");
+  data.forEach(function(s){
+    var lis=s.ex.map(function(e){return "<li>"+e+"</li>"}).join("");
+    var el=document.createElement("article");
+    el.className="item";el.id=s.id;
+    el.innerHTML=
+      '<div class="row">'+
+        '<div><div class="num">'+s.n+'</div><div class="t">'+s.t+'</div>'+
+          '<div class="price"><span class="o">от</span><span class="v">'+s.p+'</span></div></div>'+
+        '<div><p class="desc">'+s.d+'</p>'+
+          '<div class="acts">'+
+            '<a class="cta" href="'+s.link+'" target="_blank" rel="noopener">'+ico+s.cta+'</a>'+
+            '<button class="toggle">'+chev+'<span>Показать сопутствующие услуги</span></button>'+
+          '</div>'+
+          '<div class="extras"><ul>'+lis+'</ul></div>'+
+        '</div>'+
+      '</div>';
+    host.appendChild(el);
+    var btn=el.querySelector(".toggle"),ex=el.querySelector(".extras"),lbl=btn.querySelector("span");
+    btn.addEventListener("click",function(){
+      var open=btn.classList.toggle("on");
+      ex.style.maxHeight=open?ex.scrollHeight+30+"px":"0px";
+      lbl.textContent=open?"Скрыть сопутствующие услуги":"Показать сопутствующие услуги";
+    });
+  });
+})();
+</script>
